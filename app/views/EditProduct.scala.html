@@ -1,0 +1,92 @@
+@(product : Product, categories : List[Category])
+@doctype.render
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Edit Product</title>
+        <link rel="stylesheet" href="/assets/lib/bootstrap/css/bootstrap.min.css">
+    </head>
+    <body>
+        <div class="container">
+            <form method="post">
+                @helper.CSRF.formField
+                <div class="row">
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label for="productName">Product Name</label>
+                            <input type="text" class="form-control" name="productName" id="productName"
+                                   value="@product.getProductName">
+                        </div>
+                    </div>
+
+                    <div class="col-3">
+                        <div class="form-group">
+                            <label for="unitPrice">Unit Price</label>
+                            <input type="number" class="form-control" name="unitPrice" id="unitPrice"
+                                   value="@product.getUnitPrice">
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="form-group">
+                            <label for="unitsInStock">Units in Stock</label>
+                            <input type="number" class="form-control" name="unitsInStock" id="unitsInStock"
+                                   value="@product.getUnitsInStock">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-4">
+                        <div class="form-group">
+                            <label for="unitsInStock">Units on Order</label>
+                            <input type="number" class="form-control" name="unitsOnOrder" id="unitsOnOrder"
+                                   value="@product.getUnitsOnOrder">
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="form-group">
+                            <label for="unitsInStock">Reorder Level</label>
+                            <input type="number" class="form-control" name="reorderLevel" id="reorderLevel"
+                                   value="@product.getReorderLevel">
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="form-group">
+                            <label for="unitsInStock">Discontinued</label>
+                            <input type="text" class="form-control" name="discontinued" id="discontinued"
+                                   value="@product.isDiscontinued">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label for="categoryId">Category Id</label>
+                            <select class="form-control" name="categoryId" id="categoryId">
+                                @for(category<-categories){
+                                @if(product.getCategoryId == category.getCategoryId){
+                                <option value="@category.getCategoryId" selected>@category.getCategoryName</option>
+                                }else{
+                                <option value="@category.getCategoryId">@category.getCategoryName</option>
+                                }
+                                }
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label>Supplier Id</label>
+                            @product.getSupplierId
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-4"></div>
+                    <div class="col-4">
+                        <input type="submit" class="form-control btn btn-primary" value="Save">
+                    </div>
+                    <div class="col-4"></div>
+                </div>
+            </form>
+        </div>
+    </body>
+</html>

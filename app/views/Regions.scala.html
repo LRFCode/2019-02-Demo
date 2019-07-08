@@ -1,0 +1,41 @@
+@(regions : List[Region])
+@doctype.render
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Regions</title>
+    </head>
+    <body>
+        <!-- No comment -->
+        <p>The region count is: @regions.size</p>
+        <table>
+            <tr>
+                <th>Region Id</th>
+                <th>Region Name</th>
+            </tr>
+            @for(region <- regions){
+            <tr>
+                <td>
+                    @region.getRegionId
+                </td>
+                <td>
+                    <a href="@routes.RegionController.getEditRegion(region.getRegionId)">@region.getRegionName</a>
+                </td>
+            </tr>
+            }
+        </table>
+        <form action="@routes.RegionController.getAddRegion">
+            <input type="submit" value="Add New Region">
+        </form>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+

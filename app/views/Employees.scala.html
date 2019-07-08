@@ -1,0 +1,28 @@
+@(employees : List[Employee])
+@doctype.render
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Products</title>
+    </head>
+    <body>
+        <form>
+            <label for="searchName">Search by Name</label>
+            <input type="text" name="searchName" id="searchName">
+            <input type="submit" value="Search">
+        </form>
+        <h4>Employee count: @employees.size</h4>
+        <table>
+            @for(employee <- employees){
+            <tr>
+                <td>
+                    @employee.getLastName
+                </td>
+                <td>
+                    @employee.getFirstName
+                </td>
+            </tr>
+            }
+        </table>
+    </body>
+</html>

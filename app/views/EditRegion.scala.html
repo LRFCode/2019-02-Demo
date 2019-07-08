@@ -1,0 +1,15 @@
+@(region : Region)
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Edit Region</title>
+    </head>
+    <body>
+        <form method="post">
+            @helper.CSRF.formField
+            <input type="text" name="regionName" id="regionName" value="@region.getRegionName">
+            <input type="submit" value="save">
+        </form>
+    </body>
+</html>

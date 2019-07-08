@@ -1,0 +1,44 @@
+@(products : List[ProductDetail])
+@doctype.render
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Products</title>
+        <link rel="stylesheet" href="/assets/lib/bootstrap/css/bootstrap.min.css">
+    </head>
+    <body>
+        <div class="jumbotron">
+            <h1 class="text-danger">The Best Products in the World!</h1>
+        </div>
+        <div class="container">
+            <form>
+                <div class="form-group">
+                    <label for="searchName">Search by Name</label>
+                    <input type="text" name="searchName" id="searchName" class="form-control">
+                </div>
+                <input type="submit" value="Search" class="btn btn-primary">
+            </form>
+            <h4>Product count: @products.size</h4>
+            <table class="table table-striped thead-dark table-hover">
+                <tr>
+                    <th>Product Name</th>
+                    <th>Unit Price</th>
+                    <th>Category Name</th>
+                </tr>
+                @for(product <- products){
+                <tr>
+                    <td>
+                        @product.getProductName
+                    </td>
+                    <td>
+                        @product.getUnitPrice
+                    </td>
+                    <td>
+                        @product.getCategoryName
+                    </td>
+                </tr>
+                }
+            </table>
+        </div>
+    </body>
+</html>
