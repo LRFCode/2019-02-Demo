@@ -9,6 +9,7 @@ public class Category
     @Id
     private int categoryId;
     private String categoryName;
+    private byte[] picture;
 
     public int getCategoryId()
     {
@@ -18,5 +19,10 @@ public class Category
     public String getCategoryName()
     {
         return categoryName;
+    }
+
+    public byte[] getPicture()
+    {
+        return picture;
     }
 }

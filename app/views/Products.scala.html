@@ -28,7 +28,7 @@
                 @for(product <- products){
                 <tr>
                     <td>
-                        @product.getProductName
+                        <a href="@routes.ProductController.getEditProduct(product.getProductId)">@product.getProductName</a>
                     </td>
                     <td>
                         @product.getUnitPrice

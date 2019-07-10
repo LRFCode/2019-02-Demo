@@ -6,6 +6,9 @@
 GET     /                           controllers.TestController.getTest
 POST    /                           controllers.TestController.postTest
 
+GET     /login                      controllers.SessionController.getLogin
+POST    /login                      controllers.SessionController.postLogin
+
 GET     /regions                    controllers.RegionController.getList
 GET     /addregion                  controllers.RegionController.getAddRegion
 POST    /addregion                  controllers.RegionController.postAddRegion
@@ -15,6 +18,8 @@ POST    /editregion/:id             controllers.RegionController.postEditRegion(
 GET     /products                   controllers.ProductController.getList
 GET     /product/:id                controllers.ProductController.getEditProduct(id: Integer)
 POST    /product/:id                controllers.ProductController.postEditProduct(id: Integer)
+
+GET     /categorypicture/:id        controllers.ProductController.getCategoryPicture(id: Integer)
 
 GET     /employees                  controllers.EmployeeController.getList
 

@@ -22,4 +22,12 @@ public class CategoryRepository
         TypedQuery<Category> query = jpaApi.em().createQuery(sql, Category.class);
         return query.getResultList();
     }
+
+    public Category getCategory(int categoryId)
+    {
+        String sql = "SELECT c FROM Category c WHERE categoryId = :categoryId";
+        TypedQuery<Category> query = jpaApi.em().createQuery(sql, Category.class);
+        query.setParameter("categoryId", categoryId);
+        return query.getSingleResult();
+    }
 }

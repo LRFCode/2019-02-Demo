@@ -8,6 +8,7 @@ import play.mvc.Controller;
 import play.mvc.Result;
 
 import javax.inject.Inject;
+import java.math.BigDecimal;
 import java.util.List;
 
 public class ProductController extends Controller
@@ -48,14 +49,29 @@ public class ProductController extends Controller
     {
         DynamicForm form = formFactory.form().bindFromRequest();
         String productName = form.get("productName");
-        int categoryId = Integer.parseInt(form.get("categoryId"));
+        int categoryId = new Integer(form.get("categoryId"));
+        BigDecimal unitPrice = new BigDecimal(form.get("unitPrice"));
+        int unitsInStock = new Integer(form.get("unitsInStock"));
+        int unitsOnOrder = new Integer(form.get("unitsOnOrder"));
+        int reorderLevel = new Integer(form.get("reorderLevel"));
 
         Product product = productRepository.get(productId);
 
         product.setProductName(productName);
         product.setCategoryId(categoryId);
+        product.setUnitPrice(unitPrice);
+        product.setUnitsInStock(unitsInStock);
+        product.setUnitsOnOrder(unitsOnOrder);
+        product.setReorderLevel(reorderLevel);
 
-        return ok("Saved");
+        return redirect(routes.ProductController.getList());
+    }
+
+    @Transactional(readOnly = true)
+    public Result getCategoryPicture(int categoryId)
+    {
+        Category category = categoryRepository.getCategory(categoryId);
+        return ok(category.getPicture()).as("image/jpeg");
     }
 }
 

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Login</title>
+        <link rel="stylesheet" href="/assets/lib/bootstrap/css/bootstrap.min.css">
+    </head>
+    <body>
+        <div class="container">
+            <form method="post">
+                @helper.CSRF.formField
+                <h1 class="text-center">Northwind Employee Portal</h1>
+                <div class="row">
+                    <div class="col-4"></div>
+                    <div class="col-4">
+                        <div class="form-group">
+                            <label for="username">Username</label>
+                            <input type="email" name="username" id="username" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="text" name="password" id="password" class="form-control">
+                        </div>
+                        <input type="submit" value="Login" class="form-control btn btn-primary">
+                    </div>
+                    <div class="col-4"></div>
+                </div>
+            </form>
+        </div>
+    </body>
+</html>

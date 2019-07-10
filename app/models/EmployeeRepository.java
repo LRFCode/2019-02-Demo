@@ -44,6 +44,28 @@ public class EmployeeRepository
         List<Employee> employees = query.getResultList();
         return employees;
     }
+
+    public Employee getEmployee(String username, String password)
+    {
+        //Example of SQL Injection Problem!!!
+        //String sql = "SELECT e FROM Employee e WHERE email = '" + username + "' AND password = '" + password + "'";
+        String sql = "SELECT e FROM Employee e WHERE email = :username AND password = :password";
+
+        System.out.println(sql);
+        TypedQuery<Employee> query = jpaApi.em().createQuery(sql, Employee.class);
+        query.setParameter("username", username);
+        query.setParameter("password", password);
+        List<Employee> employees = query.getResultList();
+
+        if (employees.size() == 0)
+        {
+            return null;
+        }
+        else
+        {
+            return employees.get(0);
+        }
+    }
 }
 
 
