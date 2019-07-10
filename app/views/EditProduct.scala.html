@@ -59,8 +59,15 @@
                             <div class="col-4">
                                 <div class="form-group">
                                     <label for="discontinued">Discontinued</label>
-                                    <input type="text" class="form-control" name="discontinued" id="discontinued"
-                                           value="@product.isDiscontinued">
+                                    <select class="form-control" name="discontinued" id="discontinued">
+                                        @if(product.isDiscontinued){
+                                            <option value="true" selected>Yes</option>
+                                            <option value="false">No</option>
+                                        }else{
+                                            <option value="true">Yes</option>
+                                            <option value="false" selected>No</option>
+                                        }
+                                    </select>
                                 </div>
                             </div>
                         </div>

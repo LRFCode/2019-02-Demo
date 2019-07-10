@@ -34,7 +34,7 @@ public class SessionController extends Controller
         String username = form.get("username");
         String password = form.get("password");
 
-        Employee employee = employeeRepository.getEmployee(username, password);
+        Employee employee = employeeRepository.get(username, password);
 
         if (employee == null)
         {

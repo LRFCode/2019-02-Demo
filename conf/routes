@@ -22,6 +22,7 @@ POST    /product/:id                controllers.ProductController.postEditProduc
 GET     /categorypicture/:id        controllers.ProductController.getCategoryPicture(id: Integer)
 
 GET     /employees                  controllers.EmployeeController.getList
+GET     /editemployee/:id           controllers.EmployeeController.getEditEmployee(id: Integer)
 
 
 GET     /test                       controllers.TestController.getTest

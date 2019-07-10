@@ -36,5 +36,11 @@ public class EmployeeController extends Controller
         return ok(views.html.Employees.render(employees));
     }
 
+    @Transactional(readOnly = true)
+    public Result getEditEmployee(int employeeid)
+    {
+        Employee employee = employeeRepository.get(employeeid);
+        return ok(views.html.EditEmployee.render(employee));
+    }
 
 }

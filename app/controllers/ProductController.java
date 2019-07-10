@@ -54,6 +54,7 @@ public class ProductController extends Controller
         int unitsInStock = new Integer(form.get("unitsInStock"));
         int unitsOnOrder = new Integer(form.get("unitsOnOrder"));
         int reorderLevel = new Integer(form.get("reorderLevel"));
+        boolean discontinued = new Boolean(form.get("discontinued"));
 
         Product product = productRepository.get(productId);
 
@@ -63,6 +64,7 @@ public class ProductController extends Controller
         product.setUnitsInStock(unitsInStock);
         product.setUnitsOnOrder(unitsOnOrder);
         product.setReorderLevel(reorderLevel);
+        product.setDiscontinued(discontinued);
 
         return redirect(routes.ProductController.getList());
     }
