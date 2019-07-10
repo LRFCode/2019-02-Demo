@@ -1,12 +1,18 @@
 @(employee : Employee)
-<!DOCTYPE html>
+@doctype.render
 <html lang="en">
     <head>
         <meta charset="UTF-8">
         <title>Edit Employee</title>
     </head>
     <body>
-        <h1>Edit Employee</h1>
-        <input type="text" name="firstName" id="firstName" value="@employee.getFirstName">
+        <form method="post" enctype="multipart/form-data">
+            @helper.CSRF.formField
+            <h1>Edit Employee</h1>
+            <img src="@routes.EmployeeController.getPicture(employee.getEmployeeId)" alt="Picture of the employee" height="200">
+            <input type="text" name="firstName" id="firstName" value="@employee.getFirstName">
+            <input type="file" name="picture" id="picture">
+            <input type="submit" value="Save">
+        </form>
     </body>
 </html>

@@ -13,6 +13,7 @@ public class Employee
     private int employeeId;
     private String firstName;
     private String lastName;
+    private byte[] picture;
 
     public int getEmployeeId()
     {
@@ -28,4 +29,26 @@ public class Employee
     {
         return lastName;
     }
+
+    public byte[] getPicture()
+    {
+        return picture;
+    }
+
+    public void setPicture(byte[] picture)
+    {
+        this.picture = picture;
+    }
+
+    public void setFirstName(String firstName)
+    {
+        this.firstName = firstName;
+    }
+
+    public void setLastName(String lastName)
+    {
+        this.lastName = lastName;
+    }
+
+
 }

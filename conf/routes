@@ -23,7 +23,8 @@ GET     /categorypicture/:id        controllers.ProductController.getCategoryPic
 
 GET     /employees                  controllers.EmployeeController.getList
 GET     /editemployee/:id           controllers.EmployeeController.getEditEmployee(id: Integer)
-
+POST    /editemployee/:id           controllers.EmployeeController.postEditEmployee(id: Integer)
+GET     /employeepicture/:id        controllers.EmployeeController.getPicture(id: Integer)
 
 GET     /test                       controllers.TestController.getTest
 POST    /test                       controllers.TestController.postTest
